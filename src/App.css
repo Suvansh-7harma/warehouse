@@ -1,38 +1,324 @@
-.App {
-  text-align: center;
+/* Base Styles */
+body {
+  /* background-image: url(../Assets/warehouse.avif);
+  background-repeat: no-repeat;
+  background-size: cover; */
+  font-family: 'Arial', sans-serif;
+  color: #16423C; /* Changed text color */
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+  background-color: rgba(22, 66, 60, 0.1); /* Adjusted for new color */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.warehouse {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heading-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.warehouse h1 {
+  font-size: 2.5rem;
+  padding: 15px;
+  background-color: #6A9C89; /* New background color */
+  color: #E9EFEC; /* Text color */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Filter Section */
+.filter-list-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-list-component {
+  width: 90%;
+  max-width: 1200px;
+  padding: 2rem;
+  background-color: #C4DAD2; /* New background color */
+  border-radius: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Input Fields */
+.City, .Cluster, .space {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #16423C; /* Label text color */
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+input, select {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #6A9C89;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  background-color: #E9EFEC; /* Input background color */
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input::placeholder, select {
+  font-style: italic;
+  color: #888;
+}
+
+input:focus, select:focus {
+  border-color: #6A9C89;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+input:hover, select:hover {
+  background-color: #C4DAD2;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  transform: scale(1.3);
+  margin-right: 10px;
+  accent-color: #16423C;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #6A9C89;
+  border-radius: 25px;
+  font-size: 1rem;
+  color: #16423C;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #E9EFEC;
+}
+
+.search-bar input::placeholder {
+  color: #999;
+}
+
+/* Lists */
+.lists ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lists li {
+  background-color: #c8e7dc;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lists li a {
+  color: #16423C;
+  text-decoration: none;
+}
+
+/* Buttons */
+button {
+  padding: 0.8rem 1.6rem;
+  background-color: #6A9C89;
+  border: none;
+  border-radius: 30px;
+  color: #E9EFEC;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 0.05rem;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #16423C;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .warehouse h1 {
+    font-size: 2rem;
+    width: 80vw;
+  }
+
+  .filter-list-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-list-component {
+    width: 80vw;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (max-width: 768px) {
+  .warehouse h1 {
+    font-size: 1.75rem;
+  }
+
+  .filter-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .City, .Cluster, .space {
+    width: 100%;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .warehouse h1 {
+    font-size: 1.5rem;
+  }
+
+  .lists li {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .search-bar input {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Form Section */
+.details {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40vw;
+  height: fit-content;
+}
+
+@media (max-width: 1200px) {
+  .form {
+    width: 50vw;
+  }
+}
+
+@media (max-width: 992px) {
+  .form {
+    width: 60vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 768px) {
+  .form {
+    width: 80vw;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .details {
+    justify-content: center;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form {
+    width: 90vw;
+    gap: 0.5rem;
+  }
+
+  .details {
+    height: auto;
+    padding: 0.5rem;
+  }
+}
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.pagination-controls button {
+  padding: 0.5rem 1rem;
+  background-color: #6A9C89; /* You can adjust the color */
+  border: none;
   color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.pagination-controls button:disabled {
+  background-color: #C4DAD2; /* Disabled color */
+  cursor: not-allowed;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pagination-controls button.active {
+  background-color: #16423C; /* Active page button color */
+}
+
+.pagination-controls button:hover:not(:disabled) {
+  background-color: #16423C;
 }
